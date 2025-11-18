@@ -514,12 +514,27 @@
 
         .events-container {
             position: relative;
-            height: 910px;
+            height: 600px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             border: 2px solid rgba(120, 0, 0, 0.4);
-            background: linear-gradient(135deg, rgba(120, 0, 0, 0.05) 0%, rgba(193, 18, 31, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(40, 40, 40, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .events-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(26, 26, 26, 0.6) 100%);
+            pointer-events: none;
+            z-index: 5;
+            border-radius: 12px;
         }
         
         .events-container::before {
@@ -665,7 +680,7 @@
         .event-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             opacity: 0.8;
         }
 
@@ -1627,7 +1642,7 @@
             .hero h1 { font-size: 4rem; }
             .section-header h2 { font-size: 2.8rem; }
             .project-grid { grid-template-columns: 1fr; }
-            .events-container { height: 780px; }
+            .events-container { height: 500px; }
             .skills-grid-compact { grid-template-columns: 1fr; }
             .cert-list { grid-template-columns: 1fr; }
             .nav-links { gap: 1.5rem; font-size: 0.75rem; }
@@ -2190,7 +2205,7 @@
                 <img src="https://i.ibb.co/hJMnbzFy/sits-23.jpg" alt="SITS London">
                 <div class="event-info">
                     <h3>SITS, London</h3>
-                    <p>Conducted hands-on technical training workshop for European customers on identity and access management.</p>
+                    <p>Presented on cybersecurity and Identity and Access Management industry topics to European technical audiences.</p>
                 </div>
             </div>
 
@@ -2206,7 +2221,7 @@
                 <img src="https://i.ibb.co/Zjm2Ls8/SHIELD-Seminars.jpg" alt="ME Shield Seminars">
                 <div class="event-info">
                     <h3>ME Shield Seminars, India</h3>
-                    <p>Delivered security seminars across Delhi and Hyderabad for enterprise customers.</p>
+                    <p>Presented IAM solutions and solved Identity and Access Management issues for enterprise customers across Delhi and Hyderabad.</p>
                 </div>
             </div>
 
