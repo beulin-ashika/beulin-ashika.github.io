@@ -1,0 +1,2936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beulin Ashika - Product Marketing & PM</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --burgundy: #780000;
+            --red: #C1121F;
+            --cream: #FDF0D5;
+            --navy: #003049;
+            --blue: #669BBC;
+            --dark: #1a1a1a;
+        }
+
+        html { 
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Satoshi', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        .bg-decoration {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .mesh-blob-1 {
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, #FCD34D 0%, transparent 70%);
+            top: -300px;
+            right: -300px;
+            filter: blur(120px);
+        }
+
+        .mesh-blob-2 {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, #669BBC 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            filter: blur(120px);
+        }
+
+        .mesh-blob-3 {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, #FDF0D5 0%, transparent 70%);
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(140px);
+        }
+
+        .resume-download {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 998;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        .resume-download.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .resume-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.2rem;
+            background: linear-gradient(135deg, var(--burgundy), var(--red));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'IBM Plex Mono', monospace;
+            box-shadow: 0 4px 15px rgba(120, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(120, 0, 0, 0.4);
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--burgundy), var(--red));
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 998;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 15px rgba(120, 0, 0, 0.3);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(120, 0, 0, 0.4);
+        }
+        
+        .scroll-to-top svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2.5;
+            fill: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(253, 240, 213, 0.95) 0%, rgba(253, 240, 213, 0.85) 100%);
+            border-bottom: 1px solid rgba(120, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        nav.scrolled {
+            background: rgba(253, 240, 213, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--burgundy);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'IBM Plex Mono', monospace;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--red);
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 3rem;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .hero-geometric {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.23;
+            overflow: visible;
+        }
+        
+        .geo-shape {
+            position: absolute;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .geo-circle-1 { top: 10%; right: 50px; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(102, 155, 188, 0.4), rgba(102, 155, 188, 0.15)); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 20px rgba(102, 155, 188, 0.2); }
+        .geo-circle-outline-1 { top: 15%; right: 150px; width: 80px; height: 80px; border-radius: 50%; border: 2px solid rgba(120, 0, 0, 0.25); background: rgba(253, 240, 213, 0.2); box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.3); }
+        .geo-semicircle-1 { top: 30%; right: 20px; width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle at 70% 50%, rgba(193, 18, 31, 0.3), rgba(193, 18, 31, 0.1)); border: 1px solid rgba(255, 255, 255, 0.25); overflow: hidden; }
+        .geo-circle-2 { top: 45%; right: 120px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(102, 155, 188, 0.45), rgba(102, 155, 188, 0.2)); border: 1px solid rgba(255, 255, 255, 0.35); box-shadow: 0 3px 15px rgba(102, 155, 188, 0.25); }
+        .geo-dot-1 { top: 25%; right: 80px; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.6), rgba(193, 18, 31, 0.3)); box-shadow: 0 2px 8px rgba(193, 18, 31, 0.3); }
+        .geo-dot-2 { top: 38%; right: 180px; width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(120, 0, 0, 0.5), rgba(120, 0, 0, 0.25)); box-shadow: 0 2px 6px rgba(120, 0, 0, 0.25); }
+        .geo-dot-3 { top: 55%; right: 45px; width: 6px; height: 6px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.55), rgba(193, 18, 31, 0.28)); }
+        .geo-circle-outline-2 { top: 60%; right: 90px; width: 100px; height: 100px; border-radius: 50%; border: 3px solid rgba(102, 155, 188, 0.2); background: rgba(253, 240, 213, 0.15); backdrop-filter: blur(15px); box-shadow: inset 0 3px 12px rgba(255, 255, 255, 0.25); }
+        .geo-semicircle-2 { top: 70%; right: 30px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 30% 50%, rgba(102, 155, 188, 0.35), rgba(102, 155, 188, 0.12)); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .geo-circle-3 { top: 85%; right: 140px; width: 70px; height: 70px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.38), rgba(193, 18, 31, 0.15)); border: 1px solid rgba(255, 255, 255, 0.28); box-shadow: 0 4px 18px rgba(193, 18, 31, 0.22); }
+        .geo-dot-4 { top: 78%; right: 60px; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 38% 38%, rgba(120, 0, 0, 0.58), rgba(120, 0, 0, 0.3)); box-shadow: 0 2px 8px rgba(120, 0, 0, 0.28); }
+        .geo-circle-outline-3 { top: 5%; right: 100px; width: 50px; height: 50px; border-radius: 50%; border: 2px solid rgba(193, 18, 31, 0.22); background: rgba(253, 240, 213, 0.18); backdrop-filter: blur(12px); }
+
+        .hero-content {
+            max-width: 1600px;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: 7rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            line-height: 1;
+            color: var(--burgundy);
+            letter-spacing: -3px;
+            font-style: italic;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 3rem;
+            max-width: 900px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 4rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--red);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'IBM Plex Mono', monospace;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--burgundy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(193, 18, 31, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 3rem;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            color: var(--blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .section-header h2 {
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            color: var(--burgundy);
+            letter-spacing: -1px;
+            font-style: italic;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--navy);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .decoration-line {
+            width: 80px;
+            height: 3px;
+            background: var(--red);
+            margin: 2rem auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(253, 240, 213, 0.6) 0%, rgba(255, 255, 255, 0.5) 100%);
+            border: 1px solid rgba(120, 0, 0, 0.12);
+            border-radius: 8px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 2px 15px rgba(120, 0, 0, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--red);
+        }
+
+        .project-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(193, 18, 31, 0.08);
+            line-height: 1;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--blue);
+            color: white;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .project-card h3 {
+            font-family: Georgia, serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--burgundy);
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .project-meta {
+            color: var(--navy);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .project-description {
+            color: var(--dark);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .project-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.2rem;
+            background: rgba(253, 240, 213, 0.3);
+            border-left: 3px solid var(--burgundy);
+            border-radius: 4px;
+            transition: all 0.4s ease;
+        }
+
+        .highlight-item:hover {
+            background: rgba(193, 18, 31, 0.08);
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(120, 0, 0, 0.15);
+        }
+
+        .highlight-item svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--burgundy);
+            stroke-width: 2;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .highlight-text {
+            color: var(--dark);
+            line-height: 1.6;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .events-container {
+            position: relative;
+            height: 910px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(120, 0, 0, 0.4);
+            background: linear-gradient(135deg, rgba(120, 0, 0, 0.05) 0%, rgba(193, 18, 31, 0.03) 100%);
+        }
+        
+        .events-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(120, 0, 0, 0.6), rgba(193, 18, 31, 0.4));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .gallery-wrapper {
+            position: relative;
+        }
+        
+        .gallery-icon {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .gallery-icon svg {
+            stroke: var(--burgundy);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .gallery-icon-speaker-1 { top: 60px; left: -25px; width: 18px; height: 18px; }
+        .gallery-icon-mic-1 { top: 180px; left: -35px; width: 22px; height: 22px; }
+        .gallery-icon-users-1 { top: 320px; left: -20px; width: 16px; height: 16px; }
+        .gallery-icon-calendar { top: 480px; left: -40px; width: 24px; height: 24px; }
+        .gallery-icon-globe { top: 640px; left: -28px; width: 20px; height: 20px; }
+        .gallery-icon-award-1 { top: 790px; left: -32px; width: 19px; height: 19px; }
+        
+        .gallery-icon-presentation { top: 120px; right: -30px; width: 21px; height: 21px; }
+        .gallery-icon-users-2 { top: 260px; right: -22px; width: 17px; height: 17px; }
+        .gallery-icon-mic-2 { top: 400px; right: -38px; width: 23px; height: 23px; }
+        .gallery-icon-speaker-2 { top: 550px; right: -26px; width: 19px; height: 19px; }
+        .gallery-icon-badge { top: 720px; right: -33px; width: 20px; height: 20px; }
+        .gallery-icon-star { top: 850px; right: -24px; width: 18px; height: 18px; }
+        
+        .gallery-icon-top-1 { top: -25px; left: 15%; width: 17px; height: 17px; }
+        .gallery-icon-top-2 { top: -30px; left: 40%; width: 20px; height: 20px; }
+        .gallery-icon-top-3 { top: -28px; right: 35%; width: 19px; height: 19px; }
+        .gallery-icon-top-4 { top: -32px; right: 12%; width: 21px; height: 21px; }
+        
+        .gallery-icon-bottom-1 { bottom: -26px; left: 18%; width: 18px; height: 18px; }
+        .gallery-icon-bottom-2 { bottom: -31px; left: 45%; width: 22px; height: 22px; }
+        .gallery-icon-bottom-3 { bottom: -29px; right: 32%; width: 20px; height: 20px; }
+        .gallery-icon-bottom-4 { bottom: -27px; right: 10%; width: 17px; height: 17px; }
+        
+        /* Larger Secondary Icons */
+        .gallery-icon-large { opacity: 0.12; }
+        
+        .gallery-icon-left-large-1 { top: 100px; left: -55px; width: 28px; height: 28px; }
+        .gallery-icon-left-large-2 { top: 250px; left: -48px; width: 32px; height: 32px; }
+        .gallery-icon-left-large-3 { top: 410px; left: -52px; width: 30px; height: 30px; }
+        .gallery-icon-left-large-4 { top: 570px; left: -50px; width: 29px; height: 29px; }
+        .gallery-icon-left-large-5 { top: 720px; left: -54px; width: 31px; height: 31px; }
+        
+        .gallery-icon-right-large-1 { top: 40px; right: -52px; width: 30px; height: 30px; }
+        .gallery-icon-right-large-2 { top: 190px; right: -48px; width: 28px; height: 28px; }
+        .gallery-icon-right-large-3 { top: 330px; right: -56px; width: 33px; height: 33px; }
+        .gallery-icon-right-large-4 { top: 490px; right: -50px; width: 29px; height: 29px; }
+        .gallery-icon-right-large-5 { top: 650px; right: -54px; width: 31px; height: 31px; }
+        .gallery-icon-right-large-6 { top: 800px; right: -49px; width: 28px; height: 28px; }
+        
+        .gallery-icon-top-large-1 { top: -42px; left: 25%; width: 27px; height: 27px; }
+        .gallery-icon-top-large-2 { top: -45px; left: 58%; width: 30px; height: 30px; }
+        .gallery-icon-top-large-3 { top: -43px; right: 20%; width: 29px; height: 29px; }
+        
+        .gallery-icon-bottom-large-1 { bottom: -44px; left: 12%; width: 28px; height: 28px; }
+        .gallery-icon-bottom-large-2 { bottom: -46px; left: 55%; width: 31px; height: 31px; }
+        .gallery-icon-bottom-large-3 { bottom: -42px; right: 22%; width: 29px; height: 29px; }
+        
+        /* Tiny Filler Orbs */
+        .gallery-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Left Side Orbs */
+        .orb-left-1 { top: 30px; left: -45px; width: 8px; height: 8px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        .orb-left-2 { top: 135px; left: -28px; width: 6px; height: 6px; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-left-3 { top: 220px; left: -52px; width: 10px; height: 10px; background: radial-gradient(circle at 30% 30%, rgba(120, 0, 0, 0.55), rgba(120, 0, 0, 0.2)); }
+        .orb-left-4 { top: 350px; left: -38px; width: 7px; height: 7px; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-left-5 { top: 445px; left: -25px; width: 9px; height: 9px; background: radial-gradient(circle at 40% 40%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        .orb-left-6 { top: 540px; left: -48px; width: 6px; height: 6px; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-left-7 { top: 670px; left: -42px; width: 8px; height: 8px; background: radial-gradient(circle at 30% 30%, rgba(120, 0, 0, 0.55), rgba(120, 0, 0, 0.2)); }
+        .orb-left-8 { top: 760px; left: -30px; width: 7px; height: 7px; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-left-9 { top: 850px; left: -50px; width: 9px; height: 9px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        
+        /* Right Side Orbs */
+        .orb-right-1 { top: 80px; right: -42px; width: 7px; height: 7px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        .orb-right-2 { top: 155px; right: -30px; width: 9px; height: 9px; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-right-3 { top: 225px; right: -50px; width: 6px; height: 6px; background: radial-gradient(circle at 30% 30%, rgba(120, 0, 0, 0.55), rgba(120, 0, 0, 0.2)); }
+        .orb-right-4 { top: 330px; right: -35px; width: 8px; height: 8px; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-right-5 { top: 460px; right: -28px; width: 7px; height: 7px; background: radial-gradient(circle at 40% 40%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        .orb-right-6 { top: 520px; right: -46px; width: 10px; height: 10px; background: radial-gradient(circle at 30% 30%, rgba(193, 18, 31, 0.55), rgba(193, 18, 31, 0.2)); }
+        .orb-right-7 { top: 620px; right: -38px; width: 6px; height: 6px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.5), rgba(120, 0, 0, 0.2)); }
+        .orb-right-8 { top: 690px; right: -25px; width: 9px; height: 9px; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.6), rgba(193, 18, 31, 0.2)); }
+        .orb-right-9 { top: 780px; right: -44px; width: 7px; height: 7px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.55), rgba(120, 0, 0, 0.2)); }
+        .orb-right-10 { top: 880px; right: -32px; width: 8px; height: 8px; background: radial-gradient(circle at 30% 30%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        
+        /* Top Edge Orbs */
+        .orb-top-1 { top: -35px; left: 8%; width: 7px; height: 7px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.5), rgba(120, 0, 0, 0.2)); }
+        .orb-top-2 { top: -38px; left: 22%; width: 6px; height: 6px; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-top-3 { top: -32px; left: 48%; width: 9px; height: 9px; background: radial-gradient(circle at 30% 30%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        .orb-top-4 { top: -36px; right: 28%; width: 7px; height: 7px; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-top-5 { top: -34px; right: 18%; width: 8px; height: 8px; background: radial-gradient(circle at 40% 40%, rgba(120, 0, 0, 0.55), rgba(120, 0, 0, 0.2)); }
+        .orb-top-6 { top: -39px; right: 5%; width: 6px; height: 6px; background: radial-gradient(circle at 30% 30%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        
+        /* Bottom Edge Orbs */
+        .orb-bottom-1 { bottom: -34px; left: 10%; width: 8px; height: 8px; background: radial-gradient(circle at 35% 35%, rgba(120, 0, 0, 0.6), rgba(120, 0, 0, 0.2)); }
+        .orb-bottom-2 { bottom: -37px; left: 28%; width: 7px; height: 7px; background: radial-gradient(circle at 40% 40%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+        .orb-bottom-3 { bottom: -35px; left: 50%; width: 6px; height: 6px; background: radial-gradient(circle at 30% 30%, rgba(120, 0, 0, 0.5), rgba(120, 0, 0, 0.2)); }
+        .orb-bottom-4 { bottom: -38px; right: 30%; width: 9px; height: 9px; background: radial-gradient(circle at 35% 35%, rgba(193, 18, 31, 0.6), rgba(193, 18, 31, 0.2)); }
+        .orb-bottom-5 { bottom: -33px; right: 15%; width: 7px; height: 7px; background: radial-gradient(circle at 40% 40%, rgba(120, 0, 0, 0.55), rgba(120, 0, 0, 0.2)); }
+        .orb-bottom-6 { bottom: -36px; right: 3%; width: 8px; height: 8px; background: radial-gradient(circle at 30% 30%, rgba(193, 18, 31, 0.5), rgba(193, 18, 31, 0.2)); }
+
+        .event-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .event-slide.active { opacity: 1; }
+
+        .event-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .event-slide::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+        }
+
+        .event-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+        }
+
+        .event-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            color: white;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            padding: 4rem 4rem;
+            border-radius: 0 0 12px 12px;
+            min-height: 200px;
+        }
+
+        .event-info h3 {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+
+        .event-info p {
+            font-size: 0.75rem;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .journey-track {
+            position: absolute;
+            bottom: 220px;
+            left: 10%;
+            right: 10%;
+            height: 60px;
+            z-index: 5;
+        }
+
+        .wavy-line {
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 8, 8;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        .event-markers {
+            position: absolute;
+            bottom: 220px;
+            left: 10%;
+            right: 10%;
+            height: 60px;
+            z-index: 10;
+        }
+
+        .event-marker {
+            position: absolute;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            padding: 10px;
+        }
+
+        .event-marker::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(193, 18, 31, 0.3);
+            opacity: 0;
+        }
+
+        .event-marker.clicked::after {
+            animation: ripple 0.6s ease-out;
+        }
+
+        @keyframes ripple {
+            from { width: 40px; height: 40px; opacity: 1; }
+            to { width: 80px; height: 80px; opacity: 0; }
+        }
+
+        .marker-pin {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+        }
+
+        .marker-pin svg path {
+            transition: all 0.3s ease;
+        }
+
+        .event-marker.active .marker-pin svg path {
+            fill: var(--red);
+            stroke: var(--burgundy);
+        }
+
+        .event-marker:hover .marker-pin {
+            transform: translateX(-50%) scale(1.15);
+        }
+
+        .marker-dot {
+            width: 14px;
+            height: 14px;
+            background: white;
+            border: 3px solid var(--burgundy);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .event-marker:hover .marker-dot,
+        .event-marker.active .marker-dot {
+            width: 18px;
+            height: 18px;
+            border-color: var(--red);
+            border-width: 4px;
+            box-shadow: 0 0 25px rgba(193, 18, 31, 0.8);
+        }
+
+        .marker-label {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(253, 240, 213, 0.95);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .event-marker:hover .marker-label,
+        .event-marker.active .marker-label {
+            opacity: 1;
+            top: 50px;
+        }
+
+        .location {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--burgundy);
+            text-transform: uppercase;
+        }
+
+        .event-marker.active .location { color: var(--red); }
+
+        .year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--navy);
+            margin-top: 0.2rem;
+        }
+
+        .event-airplane {
+            position: absolute;
+            font-size: 2.2rem;
+            z-index: 15;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+            color: var(--cream);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+        }
+
+        .event-airplane.flying { opacity: 1; }
+
+        .nav-arrow {
+            position: absolute;
+            bottom: 1.8rem;
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 20;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-arrow:hover { transform: scale(1.2); }
+
+        .nav-arrow svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--cream);
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+            opacity: 0.7;
+        }
+
+        .nav-arrow:hover svg {
+            stroke: white;
+            opacity: 1;
+        }
+
+        .nav-arrow.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .arrow-left { left: 2rem; }
+        .arrow-right { right: 2rem; }
+
+        .skills-grid-compact {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-column {
+            background: linear-gradient(135deg, rgba(253, 240, 213, 0.6) 0%, rgba(255, 255, 255, 0.5) 100%);
+            border: 1px solid rgba(120, 0, 0, 0.12);
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(120, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .skill-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--burgundy), var(--red));
+        }
+
+        .skill-column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(120, 0, 0, 0.15);
+            border-color: var(--burgundy);
+        }
+
+        .skill-column-header {
+            font-family: Georgia, serif;
+            font-size: 1.2rem;
+            color: var(--burgundy);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(120, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-badge {
+            font-size: 0.95rem;
+            color: var(--navy);
+            font-weight: 400;
+            font-family: 'Satoshi', sans-serif;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            display: block;
+        }
+
+        .skill-badge:hover {
+            color: var(--burgundy);
+            transform: translateX(5px);
+        }
+        
+        .skill-badge.tool::before {
+            content: '⚙ ';
+            color: var(--blue);
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+        
+        .skill-badge.concept::before {
+            content: '✦ ';
+            color: var(--burgundy);
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+
+        .skills-section, .certs-section {
+            width: 100%;
+        }
+
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .cert-card {
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(193, 18, 31, 0.02) 2px,
+                    rgba(193, 18, 31, 0.02) 3px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(193, 18, 31, 0.015) 2px,
+                    rgba(193, 18, 31, 0.015) 3px
+                ),
+                radial-gradient(circle at 20% 50%, rgba(255, 248, 220, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 248, 220, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #FFFEF7 0%, #FFF8E7 100%);
+            border: 2px solid rgba(120, 0, 0, 0.15);
+            padding: 1rem;
+            border-radius: 6px;
+            position: relative;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(120, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(120, 0, 0, 0.1);
+            border-radius: 3px;
+            pointer-events: none;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(120, 0, 0, 0.15);
+            border-color: rgba(120, 0, 0, 0.25);
+        }
+
+        .cert-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle, rgba(120, 0, 0, 0.015) 1px, transparent 1px),
+                radial-gradient(circle, rgba(120, 0, 0, 0.01) 1px, transparent 1px);
+            background-size: 4px 4px, 8px 8px;
+            background-position: 0 0, 4px 4px;
+            border-radius: 6px;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .cert-badge {
+            display: inline-flex;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'IBM Plex Mono', monospace;
+            align-self: flex-start;
+            color: white;
+            z-index: 2;
+        }
+
+        .cert-card[data-org="pmi"] .cert-badge { background: #ff661d; }
+        .cert-card[data-org="iiba"] .cert-badge { background: #1d4155; }
+        .cert-card[data-org="northeastern"] .cert-badge { background: #CC0000; }
+        .cert-card[data-org="linkedin"] .cert-badge { background: #0A66C2; }
+
+        .cert-badge-text { display: inline-block; }
+        .cert-org-full { display: none; font-size: 0.7rem; }
+
+        .cert-card:hover .cert-org-full { display: inline-block; }
+        .cert-card:hover .cert-badge-text { display: none; }
+
+        .cert-card h4 {
+            font-size: 0.9rem;
+            color: var(--burgundy);
+            line-height: 1.4;
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 700;
+            z-index: 2;
+            min-height: 2.4rem;
+            padding-left: 0.5rem;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 2;
+            margin-top: auto;
+            padding-left: 0.5rem;
+        }
+
+        .cert-card:hover .cert-link {
+            opacity: 1;
+            max-height: 30px;
+        }
+
+        .cert-card[data-org="pmi"] .cert-link { color: #ff661d; }
+        .cert-card[data-org="iiba"] .cert-link { color: #1d4155; }
+        .cert-card[data-org="northeastern"] .cert-link { color: #CC0000; }
+        .cert-card[data-org="linkedin"] .cert-link { color: #0A66C2; }
+
+        .cert-card[data-org="pmi"] .cert-link:hover { color: #ff8547; }
+        .cert-card[data-org="iiba"] .cert-link:hover { color: #2d5a72; }
+        .cert-card[data-org="northeastern"] .cert-link:hover { color: #E60000; }
+        .cert-card[data-org="linkedin"] .cert-link:hover { color: #0077B5; }
+
+        .cert-link svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover svg {
+            transform: translateX(3px);
+        }
+
+        .cert-seal {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 56px;
+            height: 56px;
+            z-index: 10;
+        }
+
+        .cert-seal img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 3px 8px rgba(218, 165, 32, 0.4));
+            opacity: 0.85;
+        }
+
+        .cert-ribbon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 75px;
+            height: 75px;
+            overflow: hidden;
+            z-index: 8;
+        }
+
+        .cert-ribbon::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 110px;
+            height: 20px;
+            transform: rotate(-45deg) translateX(30px) translateY(10px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cert-card[data-org="pmi"] .cert-ribbon::before {
+            background: linear-gradient(90deg, #ff661d 0%, #ff8547 100%);
+        }
+
+        .cert-card[data-org="iiba"] .cert-ribbon::before {
+            background: linear-gradient(90deg, #1d4155 0%, #2d5a72 100%);
+        }
+
+        .cert-card[data-org="northeastern"] .cert-ribbon::before {
+            background: linear-gradient(90deg, #CC0000 0%, #E60000 100%);
+        }
+
+        .cert-card[data-org="linkedin"] .cert-ribbon::before {
+            background: linear-gradient(90deg, #0A66C2 0%, #0077B5 100%);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, rgba(253, 240, 213, 0.6) 0%, rgba(255, 255, 255, 0.5) 100%);
+            border: 1px solid rgba(120, 0, 0, 0.12);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(120, 0, 0, 0.08);
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--burgundy), var(--red));
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(120, 0, 0, 0.15);
+            border-color: var(--burgundy);
+        }
+
+        .degree-title {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--burgundy);
+            margin-bottom: 0.3rem;
+            font-style: italic;
+        }
+
+        .university {
+            font-size: 1rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .education-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--navy);
+            font-family: 'IBM Plex Mono', monospace;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .gpa {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        .coursework h4 {
+            font-size: 0.9rem;
+            color: var(--burgundy);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-top: 1.5rem;
+        }
+
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .course-tag {
+            background: rgba(120, 0, 0, 0.08);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--navy);
+            border: 1px solid rgba(120, 0, 0, 0.15);
+        }
+        
+        .mentorship-banner {
+            margin-top: 3rem;
+            padding: 2.5rem 3rem;
+            background: linear-gradient(135deg, rgba(193, 18, 31, 0.05) 0%, rgba(120, 0, 0, 0.08) 100%);
+            border-left: 4px solid var(--burgundy);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mentorship-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(193, 18, 31, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+        
+        .mentorship-banner-title {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            color: var(--burgundy);
+            font-style: italic;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mentorship-banner-content {
+            font-size: 1.05rem;
+            color: var(--dark);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .community-card {
+            background: linear-gradient(135deg, rgba(253, 240, 213, 0.6) 0%, rgba(255, 255, 255, 0.5) 100%);
+            padding: 3rem;
+            border-radius: 8px;
+            border: 1px solid rgba(120, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 2px 15px rgba(120, 0, 0, 0.08);
+        }
+
+        .community-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--red), var(--burgundy));
+            transition: height 0.3s ease;
+        }
+
+        .community-card:hover::before { height: 100%; }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(120, 0, 0, 0.15);
+        }
+
+        .community-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .community-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--burgundy);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .community-card h3 {
+            font-family: Georgia, serif;
+            font-size: 1.8rem;
+            color: var(--burgundy);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .community-role {
+            font-size: 0.9rem;
+            color: var(--red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .community-description {
+            color: var(--dark);
+            line-height: 2;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .community-impact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .impact-tag {
+            background: rgba(253, 240, 213, 0.5);
+            color: var(--burgundy);
+            padding: 0.5rem 1.2rem 0.5rem 1.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(120, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .impact-tag::before {
+            content: '▪';
+            position: absolute;
+            left: 0.6rem;
+            color: var(--burgundy);
+        }
+        
+        .scroll-highlight {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(120deg, rgba(193, 18, 31, 0) 0%, rgba(193, 18, 31, 0) 100%);
+            background-size: 0% 60%;
+            background-repeat: no-repeat;
+            background-position: 0 80%;
+            transition: background-size 0.8s ease;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .scroll-highlight.highlighted {
+            background: linear-gradient(120deg, rgba(193, 18, 31, 0.2) 0%, rgba(193, 18, 31, 0.2) 100%);
+            background-size: 100% 60%;
+            background-repeat: no-repeat;
+            background-position: 0 80%;
+        }
+        
+        /* HERO UNDERLINE - STAGGERED ANIMATION */
+        .hero-underline-1 {
+            background-image: linear-gradient(to right, #C1121F 0%, #C1121F 100%);
+            background-position: 0 100%;
+            background-size: 0% 2px;
+            background-repeat: no-repeat;
+            animation: drawUnderline 1.7s ease-out 1s forwards;
+            padding-bottom: 2px;
+        }
+        
+        .hero-underline-2 {
+            background-image: linear-gradient(to right, #C1121F 0%, #C1121F 100%);
+            background-position: 0 100%;
+            background-size: 0% 2px;
+            background-repeat: no-repeat;
+            animation: drawUnderline 1.7s ease-out 2.7s forwards;
+            padding-bottom: 2px;
+        }
+        
+        @keyframes drawUnderline {
+            to { background-size: 100% 2px; }
+        }
+        
+        /* SCROLL UNDERLINES */
+        .underline-text {
+            background-image: linear-gradient(to right, #C1121F 0%, #C1121F 100%);
+            background-position: 0 100%;
+            background-size: 0% 2px;
+            background-repeat: no-repeat;
+            transition: background-size 1.7s ease-out;
+            padding-bottom: 2px;
+        }
+        
+        .underline-text.active {
+            background-size: 100% 2px;
+        }
+        
+        .contact-section {
+            background: rgba(253, 240, 213, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 6rem 3rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(120, 0, 0, 0.1);
+            position: relative;
+            margin-top: 5rem;
+            overflow: visible;
+            z-index: 10;
+        }
+        
+        .contact-icon {
+            position: absolute;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .contact-icon svg {
+            stroke: var(--burgundy);
+            fill: none;
+            stroke-width: 1.5;
+        }
+        
+        .icon-code { top: -40px; left: 20px; width: 60px; height: 60px; }
+        .icon-lightbulb { top: 20px; left: -60px; width: 45px; height: 45px; }
+        .icon-laptop { top: 100px; left: -20px; width: 70px; height: 70px; }
+        .icon-rocket { top: -30px; right: 30px; width: 55px; height: 55px; }
+        .icon-target { top: 40px; right: -50px; width: 50px; height: 50px; }
+        .icon-chart { top: 110px; right: 0px; width: 65px; height: 65px; }
+
+        .contact-section h2 {
+            font-family: Georgia, serif;
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: var(--burgundy);
+            font-style: italic;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link-wrapper { position: relative; }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2rem;
+            background: transparent;
+            border: 2px solid var(--navy);
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-family: 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-link svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--navy);
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            background: var(--navy);
+            color: var(--cream);
+            box-shadow: 0 10px 30px rgba(0, 48, 73, 0.3);
+        }
+
+        .contact-link:hover svg { stroke: var(--cream); }
+
+        .contact-info-tooltip {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(120, 0, 0, 0.95);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-family: 'IBM Plex Mono', monospace;
+            z-index: 100;
+        }
+
+        .contact-link-wrapper:hover .contact-info-tooltip { opacity: 1; }
+
+        .contact-info-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(120, 0, 0, 0.95);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            color: var(--navy);
+            border-top: 1px solid rgba(120, 0, 0, 0.1);
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        footer p {
+            margin-bottom: 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 4rem; }
+            .section-header h2 { font-size: 2.8rem; }
+            .project-grid { grid-template-columns: 1fr; }
+            .events-container { height: 780px; }
+            .skills-grid-compact { grid-template-columns: 1fr; }
+            .cert-list { grid-template-columns: 1fr; }
+            .nav-links { gap: 1.5rem; font-size: 0.75rem; }
+            section { padding: 5rem 1.5rem; }
+            .education-grid, .community-grid { grid-template-columns: 1fr; }
+            .gallery-icon { display: none; }
+            .gallery-orb { display: none; }
+        }
+
+        @media (max-width: 1200px) {
+            .project-grid { grid-template-columns: 1fr; }
+            .skills-grid-compact { grid-template-columns: repeat(2, 1fr); }
+            .cert-list { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration">
+        <div class="mesh-blob-1"></div>
+        <div class="mesh-blob-2"></div>
+        <div class="mesh-blob-3"></div>
+    </div>
+
+    <div class="resume-download" id="resumeBtn">
+        <a href="#" class="resume-btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;stroke:white;stroke-width:2;fill:none;">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span>CV</span>
+        </a>
+    </div>
+    
+    <button class="scroll-to-top" id="scrollToTop">
+        <svg viewBox="0 0 24 24">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#work" class="nav-link">work</a></li>
+                <li><a href="#credentials" class="nav-link">credentials</a></li>
+                <li><a href="#community" class="nav-link">community</a></li>
+                <li><a href="#contact" class="nav-link">contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-geometric">
+            <div class="geo-shape geo-circle-1"></div>
+            <div class="geo-shape geo-circle-outline-1"></div>
+            <div class="geo-shape geo-semicircle-1"></div>
+            <div class="geo-shape geo-circle-2"></div>
+            <div class="geo-shape geo-dot-1"></div>
+            <div class="geo-shape geo-dot-2"></div>
+            <div class="geo-shape geo-dot-3"></div>
+            <div class="geo-shape geo-circle-outline-2"></div>
+            <div class="geo-shape geo-semicircle-2"></div>
+            <div class="geo-shape geo-circle-3"></div>
+            <div class="geo-shape geo-dot-4"></div>
+            <div class="geo-shape geo-circle-outline-3"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Hi, I'm Beulin</h1>
+            <p class="subtitle">
+                Engineering management candidate experienced in <span class="hero-underline-1">heading cross-functional projects, product marketing,</span> <span class="hero-underline-2">and executing technical presentations</span>.
+            </p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">$2.5M+</div>
+                    <div class="stat-label">revenue generated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2+ years</div>
+                    <div class="stat-label">product marketing</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#work" class="btn btn-primary">
+                    <span>view my work</span>
+                    <span>→</span>
+                </a>
+                <a href="#contact" class="btn btn-secondary">get in touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <div class="section-header">
+            <div class="section-label">featured work</div>
+            <h2>Projects That Drive Results</h2>
+            <div class="decoration-line"></div>
+            <p>Leading cross-functional projects from 0→1 and building data-driven marketing strategies</p>
+        </div>
+
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-number">01</div>
+                <span class="project-tag">product launch</span>
+                <h3>The $2.5M Launch</h3>
+                <p class="project-meta">product marketing specialist @ manageengine</p>
+                <p class="project-description">Led the planning, operations, cross-functional collaboration, documentation, execution and marketing of an experimental IT service project from inception, <span class="scroll-highlight">bringing in $2.5M+</span>.</p>
+                
+                <div class="project-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                        <span class="highlight-text">Established project plans, priorities and key milestones, provided timely delivery of project goals</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span class="highlight-text">Facilitated stakeholder alignment on critical decisions including pricing, positioning, and value proposition through regular meetings and executive updates</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2 L2 7 L12 12 L22 7 L12 2 Z"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                        <span class="highlight-text">Led all project documentation and template development as sole documentation owner, collaborated with customers to develop success stories, and iteratively refined project approach based on progress assessments</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">02</div>
+                <span class="project-tag">marketing ops</span>
+                <h3>Marketing Operations & Strategy</h3>
+                <p class="project-meta">content & campaign management</p>
+                <p class="project-description">Owned end-to-end marketing strategy and execution across multiple channels, driving brand awareness and lead generation through integrated content and campaign management.</p>
+                
+                <div class="project-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                        </svg>
+                        <span class="highlight-text">Developed and executed social media campaigns across LinkedIn, X (Twitter), and Instagram to drive engagement and brand visibility</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <polyline points="3 8 12 13 21 8"/>
+                        </svg>
+                        <span class="highlight-text">Managed monthly newsletters reaching thousands of technical users</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <span class="highlight-text">Created technical content including brochures, whitepapers, datasheets, and educational materials for enterprise audiences</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">03</div>
+                <span class="project-tag">event marketing</span>
+                <h3>Global Event Marketing</h3>
+                <p class="project-meta">international technical events</p>
+                <p class="project-description">Drove brand recognition and sales through technical presentations on <span class="underline-text">Identity and Access Management</span> at international events, educational workshops, and interactive contests.</p>
+                
+                <div class="project-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                        <span class="highlight-text">Served as product evangelist at major conferences and exhibits across London, Dubai, India, and Singapore, presenting on key industry topics</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span class="highlight-text">Conducted hands-on technical training workshops for diverse customer segments globally</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2 L2 7 L12 12 L22 7 L12 2 Z"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                        <span class="highlight-text">Designed and executed exhibit campaigns with interactive contests to maximize attendee engagement and drive sales conversions</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">04</div>
+                <span class="project-tag">partnerships</span>
+                <h3>Partner & Customer Relations</h3>
+                <p class="project-meta">relationship management</p>
+                <p class="project-description">Built and maintained strategic partner relationships through dedicated communications, enablement tools, and customized collateral to drive partner-led sales growth.</p>
+                
+                <div class="project-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        <span class="highlight-text">Created collateral specific to partner needs and regional requirements to enable sales across different markets</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2 L2 7 L12 12 L22 7 L12 2 Z"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                        <span class="highlight-text">Managed partner communications and updates through a dedicated partner newsletter</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span class="highlight-text">Maintained a partner portal to enable access to up-to-date collateral and comparison documents to enable sales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mentorship-banner">
+            <h3 class="mentorship-banner-title">Mentorship & Development</h3>
+            <p class="mentorship-banner-content">
+                Mentored two employees across diverse projects, provided technical guidance, career development support, and <span class="underline-text">fostered their professional growth</span> in alignment with team priorities within the organization.
+            </p>
+        </div>
+    </section>
+
+    <section id="presentations">
+        <div class="section-header">
+            <div class="section-label">technical speaking</div>
+            <h2>Global Tech Presentations</h2>
+            <div class="decoration-line"></div>
+            <p>Technical presentations and workshops delivered across multiple countries, engaging enterprise audiences on Identity and Access Management solutions.</p>
+        </div>
+
+        <div class="gallery-wrapper">
+            <!-- Left Side Icons -->
+            <div class="gallery-icon gallery-icon-speaker-1">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-mic-1">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-users-1">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-calendar">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-globe">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-award-1">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+            </div>
+            
+            <!-- Right Side Icons -->
+            <div class="gallery-icon gallery-icon-presentation">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2 3h20"/>
+                    <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>
+                    <path d="M7 21l5-5 5 5"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-users-2">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-mic-2">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-speaker-2">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-badge">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-star">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+            </div>
+            
+            <!-- Top Edge Icons -->
+            <div class="gallery-icon gallery-icon-top-1">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-top-2">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-top-3">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-top-4">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                </svg>
+            </div>
+            
+            <!-- Bottom Edge Icons -->
+            <div class="gallery-icon gallery-icon-bottom-1">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-bottom-2">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-bottom-3">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2 3h20"/>
+                    <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>
+                    <path d="M7 21l5-5 5 5"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-bottom-4">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+            </div>
+            
+            <!-- Larger Secondary Icons - Left Side -->
+            <div class="gallery-icon gallery-icon-large gallery-icon-left-large-1">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2 3h20"/>
+                    <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>
+                    <path d="M7 21l5-5 5 5"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-left-large-2">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-left-large-3">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-left-large-4">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-left-large-5">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+            </div>
+            
+            <!-- Larger Secondary Icons - Right Side -->
+            <div class="gallery-icon gallery-icon-large gallery-icon-right-large-1">
+                <svg viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-right-large-2">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-right-large-3">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-right-large-4">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-right-large-5">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-right-large-6">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            </div>
+            
+            <!-- Larger Secondary Icons - Top Edge -->
+            <div class="gallery-icon gallery-icon-large gallery-icon-top-large-1">
+                <svg viewBox="0 0 24 24">
+                    <path d="M2 3h20"/>
+                    <path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>
+                    <path d="M7 21l5-5 5 5"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-top-large-2">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-top-large-3">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                </svg>
+            </div>
+            
+            <!-- Larger Secondary Icons - Bottom Edge -->
+            <div class="gallery-icon gallery-icon-large gallery-icon-bottom-large-1">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-bottom-large-2">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                </svg>
+            </div>
+            <div class="gallery-icon gallery-icon-large gallery-icon-bottom-large-3">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                </svg>
+            </div>
+            
+            <!-- Tiny Filler Orbs - Left Side -->
+            <div class="gallery-orb orb-left-1"></div>
+            <div class="gallery-orb orb-left-2"></div>
+            <div class="gallery-orb orb-left-3"></div>
+            <div class="gallery-orb orb-left-4"></div>
+            <div class="gallery-orb orb-left-5"></div>
+            <div class="gallery-orb orb-left-6"></div>
+            <div class="gallery-orb orb-left-7"></div>
+            <div class="gallery-orb orb-left-8"></div>
+            <div class="gallery-orb orb-left-9"></div>
+            
+            <!-- Tiny Filler Orbs - Right Side -->
+            <div class="gallery-orb orb-right-1"></div>
+            <div class="gallery-orb orb-right-2"></div>
+            <div class="gallery-orb orb-right-3"></div>
+            <div class="gallery-orb orb-right-4"></div>
+            <div class="gallery-orb orb-right-5"></div>
+            <div class="gallery-orb orb-right-6"></div>
+            <div class="gallery-orb orb-right-7"></div>
+            <div class="gallery-orb orb-right-8"></div>
+            <div class="gallery-orb orb-right-9"></div>
+            <div class="gallery-orb orb-right-10"></div>
+            
+            <!-- Tiny Filler Orbs - Top Edge -->
+            <div class="gallery-orb orb-top-1"></div>
+            <div class="gallery-orb orb-top-2"></div>
+            <div class="gallery-orb orb-top-3"></div>
+            <div class="gallery-orb orb-top-4"></div>
+            <div class="gallery-orb orb-top-5"></div>
+            <div class="gallery-orb orb-top-6"></div>
+            
+            <!-- Tiny Filler Orbs - Bottom Edge -->
+            <div class="gallery-orb orb-bottom-1"></div>
+            <div class="gallery-orb orb-bottom-2"></div>
+            <div class="gallery-orb orb-bottom-3"></div>
+            <div class="gallery-orb orb-bottom-4"></div>
+            <div class="gallery-orb orb-bottom-5"></div>
+            <div class="gallery-orb orb-bottom-6"></div>
+            
+            <div class="events-container">
+            <div class="event-slide active">
+                <img src="https://i.ibb.co/hJMnbzFy/sits-23.jpg" alt="SITS London">
+                <div class="event-info">
+                    <h3>SITS, London</h3>
+                    <p>Conducted hands-on technical training workshop for European customers on identity and access management.</p>
+                </div>
+            </div>
+
+            <div class="event-slide">
+                <img src="https://i.ibb.co/DDh756g4/GITEX-2023-Demo.jpg" alt="GITEX Dubai 2023">
+                <div class="event-info">
+                    <h3>GITEX, Dubai</h3>
+                    <p>Presented IAM solutions to Middle East enterprise audience at one of the region's largest technology exhibitions.</p>
+                </div>
+            </div>
+
+            <div class="event-slide">
+                <img src="https://i.ibb.co/Zjm2Ls8/SHIELD-Seminars.jpg" alt="ME Shield Seminars">
+                <div class="event-info">
+                    <h3>ME Shield Seminars, India</h3>
+                    <p>Delivered security seminars across Delhi and Hyderabad for enterprise customers.</p>
+                </div>
+            </div>
+
+            <div class="event-slide">
+                <img src="https://i.ibb.co/N2JVJNmx/GITEX-2024.jpg" alt="GITEX Dubai 2024">
+                <div class="event-info">
+                    <h3>GITEX, Dubai</h3>
+                    <p>Showcased enterprise IT management solutions and engaged with global technology leaders.</p>
+                </div>
+            </div>
+
+            <div class="event-slide">
+                <img src="https://i.ibb.co/w3SqSJF/Singapore-2023.jpg" alt="TechXLR8 Singapore">
+                <div class="event-info">
+                    <h3>TechXLR8, Singapore</h3>
+                    <p>Discussed IAM trends and emerging technologies in Asia-Pacific region.</p>
+                </div>
+            </div>
+
+            <div class="journey-track">
+                <svg viewBox="0 0 1000 60" preserveAspectRatio="none">
+                    <path class="wavy-line" d="M 0,30 Q 125,10 250,30 T 500,30 T 750,30 T 1000,30" />
+                </svg>
+            </div>
+
+            <div class="event-markers">
+                <div class="event-airplane">✈</div>
+                
+                <div class="event-marker active" style="left: 0%;">
+                    <div class="marker-pin">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FDF0D5" stroke="#780000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="marker-dot"></div>
+                    <div class="marker-label">
+                        <div class="location">SITS, London</div>
+                        <div class="year">2023</div>
+                    </div>
+                </div>
+
+                <div class="event-marker" style="left: 25%;">
+                    <div class="marker-pin">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FDF0D5" stroke="#780000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="marker-dot"></div>
+                    <div class="marker-label">
+                        <div class="location">GITEX, Dubai</div>
+                        <div class="year">2023</div>
+                    </div>
+                </div>
+
+                <div class="event-marker" style="left: 50%;">
+                    <div class="marker-pin">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FDF0D5" stroke="#780000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="marker-dot"></div>
+                    <div class="marker-label">
+                        <div class="location">ME Shield, India</div>
+                        <div class="year">2023</div>
+                    </div>
+                </div>
+
+                <div class="event-marker" style="left: 75%;">
+                    <div class="marker-pin">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FDF0D5" stroke="#780000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="marker-dot"></div>
+                    <div class="marker-label">
+                        <div class="location">GITEX, Dubai</div>
+                        <div class="year">2024</div>
+                    </div>
+                </div>
+
+                <div class="event-marker" style="left: 100%;">
+                    <div class="marker-pin">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FDF0D5" stroke="#780000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                    <div class="marker-dot"></div>
+                    <div class="marker-label" style="left: auto; right: -10px; transform: translateX(0);">
+                        <div class="location">TechXLR8, Singapore</div>
+                        <div class="year">2023</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-arrow arrow-left" id="prevBtn">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+
+            <button class="nav-arrow arrow-right" id="nextBtn">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </button>
+        </div>
+        </div>
+    </section>
+
+    <section id="credentials">
+        <div class="certs-section">
+            <h2 style="font-family: Georgia, serif; font-size: 2.2rem; margin-bottom: 1.2rem; font-weight: 400; color: var(--burgundy); letter-spacing: -1px; font-style: italic; text-align: left;">Certifications</h2>
+            
+            <div class="cert-list">
+                <div class="cert-card" data-org="pmi">
+                    <div class="cert-ribbon"></div>
+                    <div class="cert-seal">
+                        <img src="https://i.ibb.co/9Cp21cy/gold-seal.png" alt="Gold Seal">
+                    </div>
+                    <span class="cert-badge">
+                        <span class="cert-badge-text">PMI</span>
+                        <span class="cert-org-full">Project Management Institute</span>
+                    </span>
+                    <h4>Project Management<br>Foundations</h4>
+                    <a href="https://www.linkedin.com/learning/certificates/03dc2da307e90ea496e89d639c998181fac19a1b331da7d508ce1cf04ed7e7c9" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        <span>View Credential</span>
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="cert-card" data-org="pmi">
+                    <div class="cert-ribbon"></div>
+                    <div class="cert-seal">
+                        <img src="https://i.ibb.co/9Cp21cy/gold-seal.png" alt="Gold Seal">
+                    </div>
+                    <span class="cert-badge">
+                        <span class="cert-badge-text">PMI</span>
+                        <span class="cert-org-full">Project Management Institute</span>
+                    </span>
+                    <h4>Scrum:<br>The Basics</h4>
+                    <a href="https://www.linkedin.com/learning/certificates/33a430b033407f108e0cba570e06f1625afddcd5e28322423af5f316ffd01ed6" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        <span>View Credential</span>
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="cert-card" data-org="pmi">
+                    <div class="cert-ribbon"></div>
+                    <div class="cert-seal">
+                        <img src="https://i.ibb.co/9Cp21cy/gold-seal.png" alt="Gold Seal">
+                    </div>
+                    <span class="cert-badge">
+                        <span class="cert-badge-text">PMI</span>
+                        <span class="cert-org-full">Project Management Institute</span>
+                    </span>
+                    <h4>Strategic Risk<br>Management</h4>
+                    <a href="https://www.linkedin.com/learning/certificates/22fd63a3144aeb6fe4b806e6784e749dd9288104d84c52f5140cde796f2e9796" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        <span>View Credential</span>
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="cert-card" data-org="northeastern">
+                    <div class="cert-ribbon"></div>
+                    <div class="cert-seal">
+                        <img src="https://i.ibb.co/9Cp21cy/gold-seal.png" alt="Gold Seal">
+                    </div>
+                    <span class="cert-badge">
+                        <span class="cert-badge-text">Northeastern</span>
+                        <span class="cert-org-full">Northeastern University</span>
+                    </span>
+                    <h4>Graduate<br>Leader</h4>
+                    <a href="https://api.badgr.io/public/assertions/F0yAENvITheiGBaa6gWhRw" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        <span>View Credential</span>
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="cert-card" data-org="iiba">
+                    <div class="cert-ribbon"></div>
+                    <div class="cert-seal">
+                        <img src="https://i.ibb.co/9Cp21cy/gold-seal.png" alt="Gold Seal">
+                    </div>
+                    <span class="cert-badge">
+                        <span class="cert-badge-text">IIBA</span>
+                        <span class="cert-org-full">International Institute<br>of Business Analysis</span>
+                    </span>
+                    <h4>Agile<br>Foundations</h4>
+                    <a href="https://www.linkedin.com/learning/certificates/7ccaf2fc00e2e85306a508fa48bca154881102b0fba7a7ec738dbb0b058e741c" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        <span>View Credential</span>
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="cert-card" data-org="linkedin">
+                    <div class="cert-ribbon"></div>
+                    <div class="cert-seal">
+                        <img src="https://i.ibb.co/9Cp21cy/gold-seal.png" alt="Gold Seal">
+                    </div>
+                    <span class="cert-badge">
+                        <span class="cert-badge-text">LinkedIn</span>
+                        <span class="cert-org-full">LinkedIn Learning</span>
+                    </span>
+                    <h4>Design Thinking:<br>Venture Design</h4>
+                    <a href="https://www.linkedin.com/learning/certificates/32ce691075df974d41708267bfac834427d528609338d259f92161b3628f6fe3" target="_blank" rel="noopener noreferrer" class="cert-link">
+                        <span>View Credential</span>
+                        <svg viewBox="0 0 24 24">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-section" style="margin-top: 1.5rem;">
+            <h2 style="font-family: Georgia, serif; font-size: 2.2rem; margin-bottom: 1.2rem; font-weight: 400; color: var(--burgundy); letter-spacing: -1px; font-style: italic; text-align: left;">Skills & Tools</h2>
+            
+            <div class="skills-grid-compact">
+                <div class="skill-column">
+                    <div class="skill-column-header">Operations & PM</div>
+                    <div class="skill-items">
+                        <span class="skill-badge tool">Zoho Projects</span>
+                        <span class="skill-badge tool">ServiceDesk Plus</span>
+                        <span class="skill-badge tool">MS Project</span>
+                        <span class="skill-badge concept">Agile</span>
+                        <span class="skill-badge concept">Scrum</span>
+                        <span class="skill-badge concept">Risk Management</span>
+                    </div>
+                </div>
+
+                <div class="skill-column">
+                    <div class="skill-column-header">Marketing & CRM</div>
+                    <div class="skill-items">
+                        <span class="skill-badge tool">Zoho Campaigns</span>
+                        <span class="skill-badge tool">Zoho CRM</span>
+                        <span class="skill-badge concept">Email Marketing</span>
+                        <span class="skill-badge concept">Content Strategy</span>
+                        <span class="skill-badge concept">Growth Marketing</span>
+                    </div>
+                </div>
+
+                <div class="skill-column">
+                    <div class="skill-column-header">Data & Analytics</div>
+                    <div class="skill-items">
+                        <span class="skill-badge tool">Zoho Analytics</span>
+                        <span class="skill-badge tool">Tableau</span>
+                        <span class="skill-badge tool">SQL</span>
+                        <span class="skill-badge tool">Python</span>
+                        <span class="skill-badge concept">Data Mining</span>
+                        <span class="skill-badge concept">ML Models</span>
+                    </div>
+                </div>
+
+                <div class="skill-column">
+                    <div class="skill-column-header">Design & Content</div>
+                    <div class="skill-items">
+                        <span class="skill-badge tool">Canva</span>
+                        <span class="skill-badge tool">Zotero</span>
+                        <span class="skill-badge concept">Technical Docs</span>
+                        <span class="skill-badge concept">Presentations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 1rem;">
+        <div class="section-header">
+            <div class="section-label">academic background</div>
+            <h2>Education</h2>
+            <div class="decoration-line"></div>
+        </div>
+
+        <div class="education-grid">
+            <div class="education-card">
+                <h3 class="degree-title">Master of Science, Engineering Management</h3>
+                <p class="university">Northeastern University</p>
+                <div class="education-meta">
+                    <span>Boston, MA</span>
+                    <span>•</span>
+                    <span>Dec 2025</span>
+                    <span>•</span>
+                    <span class="gpa">GPA: 3.7</span>
+                </div>
+                
+                <div class="coursework">
+                    <h4>Relevant Coursework</h4>
+                    <div class="course-list">
+                        <span class="course-tag">Engineering Project Management</span>
+                        <span class="course-tag">Economic Decision Making</span>
+                        <span class="course-tag">Financial Management</span>
+                        <span class="course-tag">Operations Research</span>
+                        <span class="course-tag">Data Mining</span>
+                        <span class="course-tag">Human Performance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="education-card">
+                <h3 class="degree-title">Bachelor of Engineering, Computer Science</h3>
+                <p class="university">Anna University</p>
+                <div class="education-meta">
+                    <span>Chennai, India</span>
+                    <span>•</span>
+                    <span>Apr 2021</span>
+                    <span>•</span>
+                    <span class="gpa">GPA: 8.5</span>
+                </div>
+                
+                <div class="coursework">
+                    <h4>Relevant Coursework</h4>
+                    <div class="course-list">
+                        <span class="course-tag">Software Engineering</span>
+                        <span class="course-tag">Python</span>
+                        <span class="course-tag">AI</span>
+                        <span class="course-tag">Ethics</span>
+                        <span class="course-tag">Database Systems</span>
+                        <span class="course-tag">Web Tech</span>
+                    </div>
+                </div>
+                
+                <div class="coursework">
+                    <h4>Leadership Initiatives</h4>
+                    <p style="color: var(--dark); font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem;">
+                        Organized an intercollegiate cybersecurity symposium in collaboration with industry partners.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="section-header">
+            <div class="section-label">social impact</div>
+            <h2>Community & Leadership</h2>
+            <div class="decoration-line"></div>
+            <p>Research, leadership, and community impact</p>
+        </div>
+
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Research Assistant</h3>
+                        <p class="community-role">Public Policy Research</p>
+                        <p style="font-size: 0.75rem; color: var(--navy); font-family: 'IBM Plex Mono', monospace; margin-top: 0.3rem;">northeastern university • mar 2024 - may 2024</p>
+                    </div>
+                </div>
+                <p class="community-description">
+                    Conducted comprehensive systematic reviews of academic publications using Zotero to <span class="underline-text">synthesize key insights</span> about research impacting public policy.<br>
+                    Identified, consolidated and presented insights about research protocols in a research journal.
+                </p>
+                <div class="community-impact">
+                    <span class="impact-tag">Systematic Reviews</span>
+                    <span class="impact-tag">Academic Research</span>
+                    <span class="impact-tag">Policy Analysis</span>
+                    <span class="impact-tag">Research Synthesis</span>
+                </div>
+            </div>
+
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Professional Memberships</h3>
+                        <p class="community-role">Community Involvement</p>
+                    </div>
+                </div>
+                <p class="community-description">
+                    Active engagement in professional organizations and leadership development.<br>
+                    Member of the Project Management Institute (MassBay Chapter) and Aspiring Product Managers Club at Northeastern University.
+                </p>
+                <div class="community-impact">
+                    <span class="impact-tag">PMI Member</span>
+                    <span class="impact-tag">Aspiring Product Managers Club</span>
+                </div>
+            </div>
+            
+            <div class="community-card">
+                <div class="community-header">
+                    <div class="community-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2 L2 7 L12 12 L22 7 L12 2 Z"/>
+                            <polyline points="2 17 12 22 22 17"/>
+                            <polyline points="2 12 12 17 22 12"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Student Facilitator</h3>
+                        <p class="community-role">Graduate Leadership Institute</p>
+                        <p style="font-size: 0.75rem; color: var(--navy); font-family: 'IBM Plex Mono', monospace; margin-top: 0.3rem;">northeastern university • lead360</p>
+                    </div>
+                </div>
+                <p class="community-description">
+                    Facilitated leadership development programs for graduate students, designing workshops and guiding cohorts through professional growth initiatives.<br>
+                    Led interactive sessions on leadership principles and team dynamics.
+                </p>
+                <div class="community-impact">
+                    <span class="impact-tag">Workshop Design</span>
+                    <span class="impact-tag">Leadership Training</span>
+                    <span class="impact-tag">Cohort Facilitation</span>
+                    <span class="impact-tag">Professional Development</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <!-- Tech Icons -->
+            <div class="contact-icon icon-code">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                </svg>
+            </div>
+            <div class="contact-icon icon-lightbulb">
+                <svg viewBox="0 0 24 24">
+                    <path d="M9 18h6M10 22h4M15 8a5 5 0 1 0-6 0c0 2 1 3 1 5h4c0-2 1-3 1-5z"/>
+                </svg>
+            </div>
+            <div class="contact-icon icon-laptop">
+                <svg viewBox="0 0 24 24">
+                    <rect x="4" y="2" width="16" height="14" rx="2"/>
+                    <path d="M2 16h20v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2z"/>
+                </svg>
+            </div>
+            <div class="contact-icon icon-rocket">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+                </svg>
+            </div>
+            <div class="contact-icon icon-target">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                </svg>
+            </div>
+            <div class="contact-icon icon-chart">
+                <svg viewBox="0 0 24 24">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+            </div>
+            
+            <div class="section-label">get in touch</div>
+            <h2>Let's Build Something Together</h2>
+            
+            <div class="contact-links">
+                <div class="contact-link-wrapper">
+                    <a href="mailto:nithyanandam.b@northeastern.edu" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <polyline points="3 8 12 13 21 8"/>
+                        </svg>
+                        <span>email</span>
+                    </a>
+                    <div class="contact-info-tooltip">nithyanandam.b@northeastern.edu</div>
+                </div>
+
+                <div class="contact-link-wrapper">
+                    <a href="https://linkedin.com/in/beulin-ashika" target="_blank" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                        <span>linkedin</span>
+                    </a>
+                    <div class="contact-info-tooltip">linkedin.com/in/beulin-ashika</div>
+                </div>
+
+                <div class="contact-link-wrapper">
+                    <a href="tel:+16175163403" class="contact-link">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <span>call</span>
+                    </a>
+                    <div class="contact-info-tooltip">+1 (617) 516-3403</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p style="font-weight: 700;">beulin ashika nithyanandam</p>
+        <p>ms engineering management @ northeastern university • graduating december 2025</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrolled = window.scrollY;
+            const navbar = document.getElementById('navbar');
+            const resumeBtn = document.getElementById('resumeBtn');
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            if (scrolled > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            const scrollPercentage = (scrolled / (document.body.scrollHeight - window.innerHeight)) * 100;
+            
+            if (scrollPercentage > 80) {
+                resumeBtn.classList.add('visible');
+            } else {
+                resumeBtn.classList.remove('visible');
+            }
+            
+            if (scrollPercentage > 55) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').slice(1);
+                if (href === current || 
+                    (href === 'credentials' && current === 'credentials') ||
+                    (href === 'work' && current === 'presentations')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        const eventMarkers = document.querySelectorAll('.event-marker');
+        const eventSlides = document.querySelectorAll('.event-slide');
+        const eventAirplane = document.querySelector('.event-airplane');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        let currentEventIndex = 0;
+        let isEventAnimating = false;
+
+        function updateEventArrows() {
+            prevBtn.classList.toggle('disabled', currentEventIndex === 0);
+            nextBtn.classList.toggle('disabled', currentEventIndex === eventMarkers.length - 1);
+        }
+
+        function animateEventAirplane(startPercent, endPercent, duration) {
+            if (isEventAnimating) return;
+            isEventAnimating = true;
+            eventAirplane.classList.add('flying');
+
+            const start = performance.now();
+            const dist = endPercent - startPercent;
+            const dir = dist > 0 ? 1 : -1;
+
+            function animate(now) {
+                const elapsed = now - start;
+                const prog = Math.min(elapsed / duration, 1);
+                const ease = prog * prog * (3 - 2 * prog);
+                const curr = startPercent + (dist * ease);
+                const xPos = curr / 100;
+                const wavePhase = (xPos * 4) % 1;
+                const yOffset = Math.sin(wavePhase * Math.PI * 2 - Math.PI / 2) * 20;
+                const rot = dir > 0 ? 0 : 180;
+                
+                eventAirplane.style.left = curr + '%';
+                eventAirplane.style.top = 'calc(50% + ' + yOffset + 'px)';
+                eventAirplane.style.transform = 'translate(-50%, -50%) rotate(' + rot + 'deg)';
+                
+                if (prog < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isEventAnimating = false;
+                    const finalX = endPercent / 100;
+                    const finalPhase = (finalX * 4) % 1;
+                    const finalY = Math.sin(finalPhase * Math.PI * 2 - Math.PI / 2) * 20;
+                    eventAirplane.style.left = endPercent + '%';
+                    eventAirplane.style.top = 'calc(50% + ' + finalY + 'px)';
+                    setTimeout(() => eventAirplane.classList.remove('flying'), 300);
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        function goToEventSlide(index) {
+            if (index === currentEventIndex || index < 0 || index >= eventMarkers.length || isEventAnimating) return;
+            
+            eventMarkers.forEach(m => m.classList.remove('active', 'clicked'));
+            eventSlides.forEach(s => s.classList.remove('active'));
+            
+            eventMarkers[index].classList.add('active', 'clicked');
+            eventSlides[index].classList.add('active');
+            setTimeout(() => eventMarkers[index].classList.remove('clicked'), 600);
+            
+            const currentLeft = parseFloat(eventAirplane.style.left);
+            const targetLeft = parseFloat(eventMarkers[index].style.left);
+            const startLeft = isNaN(currentLeft) ? parseFloat(eventMarkers[currentEventIndex].style.left) : currentLeft;
+            const distance = Math.abs(targetLeft - startLeft);
+            const dur = Math.max(1400, Math.min(2800, distance * 28));
+            
+            animateEventAirplane(startLeft, targetLeft, dur);
+            currentEventIndex = index;
+            updateEventArrows();
+        }
+
+        eventMarkers.forEach((marker, index) => {
+            marker.addEventListener('click', () => goToEventSlide(index));
+        });
+
+        prevBtn.addEventListener('click', () => goToEventSlide(currentEventIndex - 1));
+        nextBtn.addEventListener('click', () => goToEventSlide(currentEventIndex + 1));
+
+        updateEventArrows();
+        
+        // Scroll highlights
+        const highlightElements = document.querySelectorAll('.scroll-highlight');
+        
+        const pmiHighlight = Array.from(highlightElements).find(el => 
+            el.textContent.includes('Member of the Project Management Institute')
+        );
+        
+        const observerOptions = {
+            root: null,
+            threshold: 0.5
+        };
+        
+        const highlightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target === pmiHighlight) {
+                        setTimeout(() => {
+                            entry.target.classList.add('highlighted');
+                        }, 2000);
+                    } else {
+                        setTimeout(() => {
+                            entry.target.classList.add('highlighted');
+                        }, 200);
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        highlightElements.forEach(element => {
+            highlightObserver.observe(element);
+        });
+        
+        // Scroll underlines
+        const underlineElements = document.querySelectorAll('.underline-text');
+        
+        const underlineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('active')) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+        
+        underlineElements.forEach(element => {
+            underlineObserver.observe(element);
+        });
+    </script>
+</body>
+</html>
