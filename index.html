@@ -65,6 +65,7 @@
       padding-bottom: 4px;
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s ease;
+      cursor: pointer;
     }
     
     nav a:hover, nav a.active {
@@ -224,13 +225,6 @@
       margin-bottom: 40px;
     }
     
-    .info-text {
-      font-size: 0.8rem;
-      opacity: 0.6;
-      margin-top: 8px;
-      line-height: 1.4;
-    }
-    
     .form-group {
       margin-bottom: 24px;
     }
@@ -317,6 +311,13 @@
       background: rgba(255, 107, 107, 0.2);
     }
     
+    .info-text {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    
     .map-view {
       display: none;
       width: 100%;
@@ -383,44 +384,6 @@
     
     .detail-panel.open {
       transform: translateX(0);
-    }
-    
-    .detail-close {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background: transparent;
-      border: 1px solid #FFFBDB;
-      color: #FFFBDB;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 250;
-      transition: all 0.3s ease;
-      visibility: hidden;
-      opacity: 0;
-    }
-    
-    @media (max-width: 768px) {
-      .detail-close {
-        top: 10px;
-        right: 10px;
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-      }
-    }
-    
-    .detail-panel.open ~ .detail-close {
-      visibility: visible;
-      opacity: 1;
-    }
-    
-    .detail-close:hover {
-      background: #FFFBDB;
-      color: #001427;
     }
     
     .detail-image {
@@ -551,8 +514,8 @@
       <p>Documenting the art that is Boston's electrical transformers</p>
     </div>
     <nav>
-      <a href="#" id="nav-map" onclick="showView('map'); return false;">Map</a>
-      <a href="#" id="nav-submit" onclick="showView('submit'); return false;">Submit</a>
+      <a id="nav-map" onclick="showView('map'); return false;">Map</a>
+      <a id="nav-submit" onclick="showView('submit'); return false;">Submit</a>
     </nav>
   </header>
 
@@ -621,7 +584,7 @@
           <input type="number" id="lat-input" placeholder="Latitude" step="0.00001">
           <input type="number" id="lng-input" placeholder="Longitude" step="0.00001">
         </div>
-        <p class="info-text">Get from Google Maps: right-click location → "What's here?" and copy the coordinates</p>
+        <p class="info-text">Get from Google Maps: right-click location → "What's here?"</p>
       </div>
       
       <button type="submit" class="submit-btn" id="submit-btn">Submit</button>
@@ -646,8 +609,6 @@
       <p class="address" id="detail-address"></p>
     </div>
   </div>
-  
-  <button class="detail-close" id="detail-close-btn" onclick="closePanel()">✕</button>
 
   <footer>
     A personal project documenting the painted transformers around Boston ✦ Made with love by Beulin
@@ -817,13 +778,10 @@
         
         let coordinates = { lat: null, lng: null };
         
-        // Use manual coordinates if provided
         if (manualLat && manualLng) {
           coordinates.lat = parseFloat(manualLat);
           coordinates.lng = parseFloat(manualLng);
-        } 
-        // Otherwise geocode the address
-        else if (address) {
+        } else if (address) {
           coordinates = await geocodeAddress(address, neighborhood);
         }
         
