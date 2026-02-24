@@ -83,6 +83,7 @@
         .nav-links li:nth-child(2) a::after { background: var(--accent-2); }
         .nav-links li:nth-child(3) a::after { background: var(--accent-3); }
         .nav-links li:nth-child(4) a::after { background: var(--accent-1); }
+        .nav-links li:nth-child(5) a::after { background: var(--accent-4); }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-links a:hover, .nav-links a.active { color: var(--black); }
         .hero {
@@ -494,6 +495,42 @@
             .highlight-text { font-size: 0.75rem; }
             .education-card, .community-card { padding: 1.2rem; }
         }
+        .builds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.build-card { position: relative; border: 2px solid var(--black); background: var(--white); overflow: hidden; transition: all 0.4s ease; }
+.build-card:hover { transform: translateY(-3px); box-shadow: 8px 8px 0 var(--black); }
+.build-card__stripe { height: 4px; background: var(--accent-2); }
+.build-card__stripe--alt { background: var(--accent-1); }
+.build-card__inner { padding: 1.5rem; }
+.build-card__header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; }
+.build-card__meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.build-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 0.25rem 0.6rem; border: 1.5px solid var(--black); }
+.build-tag--pm { background: var(--accent-2); color: var(--black); }
+.build-tag--marketplace { background: var(--white); color: var(--black); }
+.build-tag--ai { background: var(--accent-3); color: var(--black); }
+.build-tag--community { background: var(--accent-1); color: var(--white); }
+.build-card__number { font-family: 'IBM Plex Mono', monospace; font-size: 3rem; font-weight: 900; color: var(--black); opacity: 0.05; line-height: 1; }
+.build-card__title { font-size: 1.6rem; font-weight: 900; color: var(--black); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+.build-card__tagline { font-size: 0.9rem; color: var(--gray-mid); line-height: 1.6; margin-bottom: 1.2rem; max-width: 700px; }
+.build-card__insight-row--single { grid-template-columns: 1fr; }
+.build-insight { padding: 0.8rem; background: rgba(0,0,0,0.02); border-left: 3px solid var(--accent-2); }
+.build-insight__label { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gray-mid); margin-bottom: 0.4rem; }
+.build-insight__value { font-size: 0.8rem; color: var(--gray-dark); line-height: 1.5; }
+.build-card__tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+.tech-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; font-weight: 600; padding: 0.2rem 0.5rem; background: var(--gray-lighter); color: var(--gray-dark); text-transform: uppercase; letter-spacing: 0.5px; }
+.build-card__links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.build-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.2rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: all 0.3s ease; }
+.build-link svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; }
+.build-link--primary { background: var(--black); color: var(--white); border: 2px solid var(--black); }
+.build-link--primary:hover { background: var(--accent-2); color: var(--black); }
+.build-link--secondary { background: var(--white); color: var(--black); border: 2px solid var(--black); }
+.build-link--secondary:hover { background: var(--black); color: var(--white); }
+@media (max-width: 768px) {
+    .builds-grid { grid-template-columns: 1fr; }
+    .build-card__insight-row--single { grid-template-columns: 1fr; }
+}
+
+
+        
         @media (max-width: 480px) {
             .hero-text h1 { letter-spacing: -2px; }
             .stat-number { font-size: 1.8rem; }
@@ -522,6 +559,7 @@
                 <li><a href="#credentials" class="nav-link">credentials</a></li>
                 <li><a href="#community" class="nav-link">community</a></li>
                 <li><a href="#contact" class="nav-link">contact</a></li>
+                <li><a href="#projects" class="nav-link">projects</a></li>
             </ul>
         </div>
     </nav>
@@ -649,6 +687,83 @@
             <p class="mentorship-banner-content">Mentored two employees across diverse projects, provided technical guidance and career development support.</p>
         </div>
     </section>
+    <section id="projects" class="reveal">
+    <div class="section-header">
+        <div class="section-label">built by me</div>
+        <h2>Things I've Built</h2>
+        <p>Real problems. Designed and built using AI-assisted development.</p>
+    </div>
+    <div class="builds-grid">
+
+        <div class="build-card">
+            <div class="build-card__stripe"></div>
+            <div class="build-card__inner">
+                <div class="build-card__header">
+                    <div class="build-card__meta">
+                        <span class="build-tag build-tag--pm">Product Design</span>
+                        <span class="build-tag build-tag--marketplace">Marketplace</span>
+                        <span class="build-tag build-tag--ai">AI-Assisted Build</span>
+                    </div>
+                    <div class="build-card__number">01</div>
+                </div>
+                <h3 class="build-card__title">Laundromate</h3>
+                <p class="build-card__tagline">A two-sided marketplace connecting renters without in-unit laundry to landlords with underutilized machines in shared building spaces.</p>
+                <div class="build-card__insight-row build-card__insight-row--single">
+                    <div class="build-insight">
+                        <div class="build-insight__label">Why it exists</div>
+                        <div class="build-insight__value">Millions of renters rely on commercial laundromats not because they prefer them, but because no closer option is visible. Most apartment buildings already have shared laundry rooms sitting idle. Laundromate makes those machines bookable without requiring any new infrastructure.</div>
+                    </div>
+                </div>
+                <div class="build-card__tech">
+                    <span class="tech-tag">Built with Claude</span>
+                    <span class="tech-tag">Hosted on Vercel</span>
+                </div>
+                <div class="build-card__links">
+                    <a href="https://laundromate.vercel.app" target="_blank" class="build-link build-link--primary">
+                        <span>Open prototype</span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="https://laundromate.vercel.app/case-study" target="_blank" class="build-link build-link--secondary">
+                        <span>Read case study</span>
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="build-card">
+            <div class="build-card__stripe build-card__stripe--alt"></div>
+            <div class="build-card__inner">
+                <div class="build-card__header">
+                    <div class="build-card__meta">
+                        <span class="build-tag build-tag--community">Community</span>
+                        <span class="build-tag build-tag--ai">AI-Assisted Build</span>
+                    </div>
+                    <div class="build-card__number">02</div>
+                </div>
+                <h3 class="build-card__title">Boxes of Boston</h3>
+                <p class="build-card__tagline">Boston's electrical transformer boxes are canvases. Artists paint them. Nobody documents them. A visual archive so they don't disappear into the street.</p>
+                <div class="build-card__insight-row build-card__insight-row--single">
+                    <div class="build-insight">
+                        <div class="build-insight__label">Why it exists</div>
+                        <div class="build-insight__value">Hyperlocal public art gets painted over, moved, or ignored. This is a living record built to be found, browsed, and eventually contributed to by the community that created it.</div>
+                    </div>
+                </div>
+                <div class="build-card__tech">
+                    <span class="tech-tag">Built with Claude</span>
+                    <span class="tech-tag">Hosted on Vercel</span>
+                </div>
+                <div class="build-card__links">
+                    <a href="https://boxes-of-boston.vercel.app/" target="_blank" class="build-link build-link--primary">
+                        <span>View gallery</span>
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
     <section id="presentations" class="reveal">
         <div class="section-header">
             <div class="section-label">technical speaking</div>
